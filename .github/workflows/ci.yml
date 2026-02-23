@@ -49,3 +49,30 @@ jobs:
         run: |
           npm ci
           npm test
+
+      # ─── End-to-end tests using Cypress ───────────────────────
+      - name: Start backend server
+        working-directory: electronic-store-mern/server
+        run: |
+          npm ci
+          npm run start &
+          echo "backend starting"
+
+      - name: Start frontend server
+        working-directory: electronic-store-mern/client
+        env:
+          VITE_API_URL: http://localhost:5000/api
+        run: |
+          # node_modules already installed above, just run dev server
+          npm run dev &
+          echo "frontend starting"
+
+      - name: Wait for servers
+        run: |
+          npx wait-on http://localhost:5000
+          npx wait-on http://localhost:5173
+
+      - name: Run Cypress e2e tests
+        working-directory: electronic-store-mern/client
+        run: |
+          npm run cy:run
