@@ -51,30 +51,17 @@ jobs:
           npm test
 
       # ─── End-to-end tests using Cypress ───────────────────────
-      - name: Start backend server
-        working-directory: electronic-store-mern/server
-        env:
-          MONGO_URI: mongodb://localhost:27017/electrostore_test
+      - name: Run Cypress e2e tests
         run: |
+          # install deps for both sides (server may not have been installed since earlier job)
+          cd electronic-store-mern/server
           npm ci
-          npm run start &
-          echo "backend starting"
-
-      - name: Start frontend server
-        working-directory: electronic-store-mern/client
-        env:
-          VITE_API_URL: http://localhost:5000/api
-        run: |
-          # node_modules already installed above, just run dev server
-          npm run dev &
-          echo "frontend starting"
-
-      - name: Wait for servers
-        run: |
+          MONGO_URI=mongodb://localhost:27017/electrostore_test npm run start &
+          cd ../client
+          npm ci
+          # start vite listening on all interfaces so wait-on can detect it
+          VITE_API_URL=http://localhost:5000 npm run dev -- --host &
+          echo "waiting for backend & frontend"
           npx wait-on http://localhost:5000
           npx wait-on http://localhost:5173
-
-      - name: Run Cypress e2e tests
-        working-directory: electronic-store-mern/client
-        run: |
           npm run cy:run
