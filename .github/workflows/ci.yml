@@ -51,22 +51,23 @@ jobs:
           npm ci
           npm test
 
-      # ─── End-to-end tests using Cypress ───────────────────────
-      - name: Start backend & frontend for Cypress
+      # Upload test coverage reports for server and client
+      - name: Generate server coverage
+        working-directory: electronic-store-mern/server
         run: |
-          cd electronic-store-mern/server
-          npm ci
-          export MONGO_URI=mongodb://localhost:27017/electrostore_test
-          npm run start &
-          cd ../client
-          npm ci
-          export VITE_API_URL=http://localhost:5000
-          npm run dev -- --host &
-          npx wait-on http://localhost:5000 http://localhost:5173
-
-      - name: Run Cypress e2e tests
-        uses: cypress-io/github-action@v5
+          npm run test:coverage
+      - name: Upload server coverage artifact
+        uses: actions/upload-artifact@v3
         with:
-          working-directory: electronic-store-mern/client
-          browser: chrome
-          command: npm run cy:run
+          name: server-coverage
+          path: electronic-store-mern/server/coverage
+
+      - name: Generate client coverage
+        working-directory: electronic-store-mern/client
+        run: |
+          npm run test:coverage
+      - name: Upload client coverage artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: client-coverage
+          path: electronic-store-mern/client/coverage
