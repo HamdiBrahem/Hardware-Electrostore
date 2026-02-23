@@ -13,7 +13,7 @@ exports[`Order Routes POST /api/orders snapshot: create order response 1`] = `
         "image": "/images/test.jpg",
         "name": "Test Product",
         "price": 99.99,
-        "product": "6999da42f58bfff9582a54ab",
+        "product": "[ObjectId]",
         "quantity": 2,
       },
     ],
@@ -26,7 +26,7 @@ exports[`Order Routes POST /api/orders snapshot: create order response 1`] = `
     "status": "pending",
     "totalPrice": 199.98,
     "updatedAt": "[Date]",
-    "user": "6999da42f58bfff9582a54a8",
+    "user": "[ObjectId]",
   },
   "success": true,
 }

@@ -8,6 +8,9 @@ export function sanitize(obj) {
 
   const copy = { ...obj };
 
+  // helper to detect 24‑char hex ObjectId strings
+  const isObjectIdString = (val) => typeof val === 'string' && /^[a-f0-9]{24}$/.test(val);
+
   // Replace dynamic Mongo / Date fields with stable placeholders
   if (copy._id) copy._id = '[ObjectId]';
   if (copy.__v !== undefined) copy.__v = '[version]';
@@ -16,6 +19,14 @@ export function sanitize(obj) {
   if (copy.paidAt) copy.paidAt = '[Date]';
   if (copy.token) copy.token = '[JWT]';
   if (copy.password && copy.password.startsWith('$2a$')) copy.password = '[bcrypt]';
+
+  // Mask any string fields that look like ObjectIds
+  for (const key of Object.keys(copy)) {
+    const val = copy[key];
+    if (isObjectIdString(val)) {
+      copy[key] = '[ObjectId]';
+    }
+  }
 
   // Recurse into nested objects
   for (const key of Object.keys(copy)) {
