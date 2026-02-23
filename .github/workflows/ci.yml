@@ -59,10 +59,12 @@ jobs:
           start: |
             cd ../server
             npm ci
-            MONGO_URI=mongodb://localhost:27017/electrostore_test npm run start &
+            export MONGO_URI=mongodb://localhost:27017/electrostore_test
+            npm run start &
             cd ../client
             npm ci
-            VITE_API_URL=http://localhost:5000 npm run dev -- --host
+            export VITE_API_URL=http://localhost:5000
+            npm run dev -- --host
           wait-on: "http://localhost:5000, http://localhost:5173"
           wait-on-timeout: 60
           browser: chrome
