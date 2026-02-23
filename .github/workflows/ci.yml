@@ -52,26 +52,20 @@ jobs:
           npm test
 
       # ─── End-to-end tests using Cypress ───────────────────────
-      - name: Cache Cypress binary
-        uses: actions/cache@v3
-        with:
-          path: ~/.cache/Cypress
-          key: ${{ runner.os }}-cypress-${{ hashFiles('**/cypress.config.js') }}
-
       - name: Run Cypress e2e tests
-        run: |
-          # install deps for both sides (server may not have been installed since earlier job)
-          cd electronic-store-mern/server
-          npm ci
-          MONGO_URI=mongodb://localhost:27017/electrostore_test npm run start &
-          cd ../client
-          npm ci
-          # start vite listening on all interfaces so wait-on can detect it
-          VITE_API_URL=http://localhost:5000 npm run dev -- --host &
-          echo "waiting for backend & frontend"
-          npx wait-on http://localhost:5000 && echo backend ready
-          npx wait-on http://localhost:5173 && echo frontend ready
-          echo "installing cypress binary"
-          npx cypress install --verbose
-          echo "running cypress specs"
-          npx cypress run --spec "cypress/e2e/**/*.cy.js" --exit
+        uses: cypress-io/github-action@v5
+        with:
+          working-directory: electronic-store-mern/client
+          start: |
+            cd ../server
+            npm ci
+            MONGO_URI=mongodb://localhost:27017/electrostore_test npm run start &
+            cd ../client
+            npm ci
+            VITE_API_URL=http://localhost:5000 npm run dev -- --host
+          wait-on: |
+            http://localhost:5000
+            http://localhost:5173
+          wait-on-timeout: 60
+          browser: chrome
+          command: npm run cy:run
