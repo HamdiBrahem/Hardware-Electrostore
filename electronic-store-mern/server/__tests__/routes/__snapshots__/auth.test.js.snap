@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Auth Routes POST /api/auth/login should return 401 for wrong password 1`] = `
+{
+  "message": "Invalid email or password",
+  "success": false,
+}
+`;
+
+exports[`Auth Routes POST /api/auth/login snapshot: login success response 1`] = `
+{
+  "data": {
+    "token": "[JWT]",
+    "user": {
+      "__v": "[version]",
+      "_id": "[ObjectId]",
+      "createdAt": "[Date]",
+      "email": "test@example.com",
+      "firstName": "Test",
+      "isAdmin": false,
+      "lastName": "User",
+      "updatedAt": "[Date]",
+      "username": "testuser",
+    },
+  },
+  "success": true,
+}
+`;
+
+exports[`Auth Routes POST /api/auth/register should return 400 for duplicate email 1`] = `
+{
+  "message": "User with this email already exists",
+  "success": false,
+}
+`;
+
+exports[`Auth Routes POST /api/auth/register snapshot: register success response 1`] = `
+{
+  "data": {
+    "token": "[JWT]",
+    "user": {
+      "__v": "[version]",
+      "_id": "[ObjectId]",
+      "createdAt": "[Date]",
+      "email": "test@example.com",
+      "firstName": "Test",
+      "isAdmin": false,
+      "lastName": "User",
+      "updatedAt": "[Date]",
+      "username": "testuser",
+    },
+  },
+  "success": true,
+}
+`;
+
+exports[`Auth Routes PUT /api/auth/profile snapshot: profile update response 1`] = `
+{
+  "data": {
+    "token": "[JWT]",
+    "user": {
+      "__v": "[version]",
+      "_id": "[ObjectId]",
+      "createdAt": "[Date]",
+      "email": "test@example.com",
+      "firstName": "Updated",
+      "isAdmin": false,
+      "lastName": "Name",
+      "updatedAt": "[Date]",
+      "username": "testuser",
+    },
+  },
+  "success": true,
+}
+`;

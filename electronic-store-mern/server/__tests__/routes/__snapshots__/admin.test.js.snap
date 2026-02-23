@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Admin Routes GET /api/admin/stats snapshot: admin stats response shape 1`] = `
+{
+  "data": {
+    "recentOrders": [],
+    "statusCounts": {},
+    "totalOrders": 0,
+    "totalProducts": 0,
+    "totalRevenue": 0,
+    "totalUsers": 2,
+  },
+  "success": true,
+}
+`;

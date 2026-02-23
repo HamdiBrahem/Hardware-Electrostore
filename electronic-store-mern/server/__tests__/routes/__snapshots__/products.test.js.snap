@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Product Routes GET /api/products snapshot: product list response shape 1`] = `
+{
+  "data": [
+    {
+      "__v": "[version]",
+      "_id": "[ObjectId]",
+      "badge": "",
+      "brand": "TestBrand",
+      "category": "Computers",
+      "countInStock": 10,
+      "createdAt": "[Date]",
+      "description": "A great laptop",
+      "featured": false,
+      "features": [],
+      "image": "/images/test.jpg",
+      "name": "Test Laptop",
+      "price": 999.99,
+      "rating": 0,
+      "reviews": 0,
+      "updatedAt": "[Date]",
+    },
+  ],
+  "pagination": {
+    "limit": 50,
+    "page": 1,
+    "pages": 1,
+    "total": 1,
+  },
+  "success": true,
+}
+`;
+
+exports[`Product Routes GET /api/products/:id snapshot: single product response 1`] = `
+{
+  "data": {
+    "__v": "[version]",
+    "_id": "[ObjectId]",
+    "badge": "",
+    "brand": "TestBrand",
+    "category": "Computers",
+    "countInStock": 10,
+    "createdAt": "[Date]",
+    "description": "A great laptop",
+    "featured": false,
+    "features": [],
+    "image": "/images/test.jpg",
+    "name": "Test Laptop",
+    "price": 999.99,
+    "rating": 0,
+    "reviews": 0,
+    "updatedAt": "[Date]",
+  },
+  "success": true,
+}
+`;
+
+exports[`Product Routes POST /api/products snapshot: create product response 1`] = `
+{
+  "data": {
+    "__v": "[version]",
+    "_id": "[ObjectId]",
+    "badge": "",
+    "brand": "TestBrand",
+    "category": "Computers",
+    "countInStock": 10,
+    "createdAt": "[Date]",
+    "description": "A great laptop",
+    "featured": false,
+    "features": [],
+    "image": "/images/test.jpg",
+    "name": "Test Laptop",
+    "price": 999.99,
+    "rating": 0,
+    "reviews": 0,
+    "updatedAt": "[Date]",
+  },
+  "success": true,
+}
+`;

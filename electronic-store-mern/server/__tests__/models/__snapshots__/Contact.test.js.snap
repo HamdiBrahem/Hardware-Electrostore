@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Contact Model snapshot: created contact shape 1`] = `
+{
+  "__v": "[version]",
+  "_id": "[ObjectId]",
+  "createdAt": "[Date]",
+  "email": "john@example.com",
+  "isRead": false,
+  "message": "This is a test message.",
+  "name": "John Doe",
+  "subject": "Test Subject",
+  "updatedAt": "[Date]",
+}
+`;

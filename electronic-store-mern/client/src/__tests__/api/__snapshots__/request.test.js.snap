@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`API Request Helper snapshot: GET request call args 1`] = `
+[
+  "/api/products",
+  {
+    "headers": {
+      "Content-Type": "application/json",
+    },
+  },
+]
+`;
+
+exports[`API Request Helper snapshot: POST request call args 1`] = `
+[
+  "/api/auth/login",
+  {
+    "body": "{"email":"test@example.com","password":"123456"}",
+    "headers": {
+      "Content-Type": "application/json",
+    },
+    "method": "POST",
+  },
+]
+`;

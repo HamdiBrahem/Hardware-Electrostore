@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Laptop Gamer",
+    "category": "Computers",
+    "price": 1000.00,
+    "rating": 4,
+    "image": "/images/laptop.jpg",
+    "badge": "Best Seller",
+    "description": "High-performance gaming laptop with powerful GPU and fast refresh display.",
+    "featured": true,
+    "countInStock": 10
+  },
+  {
+    "id": 2,
+    "name": "iPhone 14 Pro Max",
+    "category": "Phones",
+    "price": 1500.00,
+    "rating": 5,
+    "image": "/images/iphone-14-pro-max.jpg",
+    "badge": "New",
+    "description": "Apple's flagship phone with Dynamic Island and 48MP camera system.",
+    "featured": true,
+    "countInStock": 5
+  },
+  {
+    "id": 3,
+    "name": "TV Samsung 55\"",
+    "category": "TVs & Displays",
+    "price": 800.00,
+    "rating": 4,
+    "image": "/images/tv-image.jpg",
+    "badge": null,
+    "description": "Crystal clear 4K UHD Smart TV with vibrant colors and immersive sound.",
+    "featured": true,
+    "countInStock": 2
+  }
+]

@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Product Model snapshot: created product shape 1`] = `
+{
+  "__v": "[version]",
+  "_id": "[ObjectId]",
+  "badge": "",
+  "brand": "",
+  "category": "Computers",
+  "countInStock": 10,
+  "createdAt": "[Date]",
+  "description": "",
+  "featured": false,
+  "features": [],
+  "image": "/images/test.jpg",
+  "name": "Test Laptop",
+  "price": 999.99,
+  "rating": 0,
+  "reviews": 0,
+  "updatedAt": "[Date]",
+}
+`;
+
+exports[`Product Model snapshot: product with all fields 1`] = `
+{
+  "__v": "[version]",
+  "_id": "[ObjectId]",
+  "badge": "Best Seller",
+  "brand": "TestBrand",
+  "category": "Computers",
+  "countInStock": 25,
+  "createdAt": "[Date]",
+  "description": "A powerful laptop",
+  "featured": true,
+  "features": [
+    "SSD",
+    "16GB RAM",
+  ],
+  "image": "/images/test.jpg",
+  "name": "Test Laptop",
+  "price": 999.99,
+  "rating": 4.5,
+  "reviews": 100,
+  "updatedAt": "[Date]",
+}
+`;

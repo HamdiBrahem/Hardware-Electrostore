@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`User Model snapshot: created user shape 1`] = `
+{
+  "__v": "[version]",
+  "_id": "[ObjectId]",
+  "createdAt": "[Date]",
+  "email": "test@example.com",
+  "firstName": "",
+  "isAdmin": false,
+  "lastName": "",
+  "updatedAt": "[Date]",
+  "username": "testuser",
+}
+`;

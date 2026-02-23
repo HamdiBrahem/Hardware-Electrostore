@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Order Routes POST /api/orders snapshot: create order response 1`] = `
+{
+  "data": {
+    "__v": "[version]",
+    "_id": "[ObjectId]",
+    "createdAt": "[Date]",
+    "isPaid": false,
+    "items": [
+      {
+        "_id": "[ObjectId]",
+        "image": "/images/test.jpg",
+        "name": "Test Product",
+        "price": 99.99,
+        "product": "6999da42f58bfff9582a54ab",
+        "quantity": 2,
+      },
+    ],
+    "shippingAddress": {
+      "address": "123 Test St",
+      "city": "TestCity",
+      "country": "US",
+      "postalCode": "12345",
+    },
+    "status": "pending",
+    "totalPrice": 199.98,
+    "updatedAt": "[Date]",
+    "user": "6999da42f58bfff9582a54a8",
+  },
+  "success": true,
+}
+`;

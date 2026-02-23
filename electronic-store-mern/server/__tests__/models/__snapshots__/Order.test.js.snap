@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Order Model snapshot: created order shape 1`] = `
+{
+  "__v": "[version]",
+  "_id": "[ObjectId]",
+  "createdAt": "[Date]",
+  "isPaid": false,
+  "items": [
+    {
+      "_id": "[ObjectId]",
+      "image": "/images/test.jpg",
+      "name": "Test Product",
+      "price": 99.99,
+      "product": "[ObjectId]",
+      "quantity": 2,
+    },
+  ],
+  "shippingAddress": {
+    "address": "123 Test St",
+    "city": "TestCity",
+    "country": "US",
+    "postalCode": "12345",
+  },
+  "status": "pending",
+  "totalPrice": 199.98,
+  "updatedAt": "[Date]",
+  "user": "[ObjectId]",
+}
+`;

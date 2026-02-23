@@ -1,0 +1,428 @@
+/* ===== Admin Layout ===== */
+.admin {
+  display: flex;
+  min-height: 100vh;
+  background: #07071a;
+  color: #fff;
+  --sidebar-width: 260px;
+  --sidebar-collapsed: 72px;
+  transition: --sidebar-width 0.3s ease;
+}
+
+/* ——— Sidebar ——— */
+.admin__sidebar {
+  width: var(--sidebar-width);
+  background: linear-gradient(180deg, #0d0d24 0%, #0a0a1e 100%);
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+  padding: 1.5rem 0.85rem;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: visible;
+}
+
+/* Brand */
+.admin__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0 0.35rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  margin-bottom: 0.5rem;
+  flex-shrink: 0;
+}
+
+.admin__brand-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #6c5ce7, #a855f7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #fff;
+  flex-shrink: 0;
+  box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
+}
+
+.admin__brand-text h2 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  margin: 0;
+  white-space: nowrap;
+  background: linear-gradient(135deg, #fff 30%, rgba(255, 255, 255, 0.7));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.admin__brand-text span {
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Clip inner content when collapsed, but not the toggle */
+.admin--collapsed .admin__nav,
+.admin--collapsed .admin__sidebar-footer,
+.admin--collapsed .admin__brand {
+  overflow: hidden;
+}
+
+/* Collapse toggle */
+.admin__collapse-btn {
+  position: absolute;
+  top: 1.75rem;
+  right: -13px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #1a1a3e;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 110;
+  opacity: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.admin__sidebar:hover .admin__collapse-btn {
+  opacity: 1;
+}
+
+.admin__collapse-btn:hover {
+  background: #6c5ce7;
+  color: #fff;
+  border-color: #6c5ce7;
+}
+
+.admin--collapsed .admin__collapse-btn {
+  opacity: 1;
+  transform: rotate(180deg);
+}
+
+/* Navigation */
+.admin__nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.75rem 0;
+}
+
+.admin__nav-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: rgba(255, 255, 255, 0.2);
+  padding: 0 0.65rem;
+  margin: 0 0 0.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.admin__nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.75rem 0.75rem;
+  border-radius: 12px;
+  color: rgba(255, 255, 255, 0.45);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  position: relative;
+  white-space: nowrap;
+}
+
+.admin__nav-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  flex-shrink: 0;
+  width: 22px;
+}
+
+.admin__nav-link:hover {
+  color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.admin__nav-link--active {
+  color: #fff;
+  background: linear-gradient(135deg, rgba(108, 92, 231, 0.15), rgba(168, 85, 247, 0.1));
+  box-shadow: inset 0 0 0 1px rgba(108, 92, 231, 0.2);
+}
+
+.admin__nav-link--active .admin__nav-icon {
+  color: #a29bfe;
+}
+
+.admin__nav-link--active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 60%;
+  border-radius: 0 4px 4px 0;
+  background: linear-gradient(180deg, #6c5ce7, #a855f7);
+}
+
+/* Sidebar Footer */
+.admin__sidebar-footer {
+  flex-shrink: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.admin__footer-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: 10px;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 0.82rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  width: 100%;
+  text-align: left;
+}
+
+.admin__footer-btn svg {
+  font-size: 1.05rem;
+  flex-shrink: 0;
+}
+
+.admin__footer-btn:hover {
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.admin__footer-btn--logout:hover {
+  color: #ff7675;
+  background: rgba(255, 118, 117, 0.06);
+}
+
+/* User card */
+.admin__user-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  margin-top: 0.5rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.admin__user-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #6c5ce7, #a855f7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.admin__user-info {
+  overflow: hidden;
+}
+
+.admin__user-name {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.admin__user-role {
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.3);
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* ——— Main ——— */
+.admin__main {
+  flex: 1;
+  margin-left: var(--sidebar-width);
+  padding: 2rem 2.5rem;
+  min-height: 100vh;
+  transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ——— Collapsed state ——— */
+.admin--collapsed {
+  --sidebar-width: var(--sidebar-collapsed);
+}
+
+.admin--collapsed .admin__sidebar {
+  width: var(--sidebar-collapsed);
+}
+
+.admin--collapsed .admin__brand-text,
+.admin--collapsed .admin__nav-label,
+.admin--collapsed .admin__nav-text,
+.admin--collapsed .admin__footer-btn span,
+.admin--collapsed .admin__user-info {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+}
+
+.admin--collapsed .admin__nav-link {
+  justify-content: center;
+  padding: 0.75rem;
+}
+
+.admin--collapsed .admin__nav-link--active::before {
+  display: none;
+}
+
+.admin--collapsed .admin__footer-btn {
+  justify-content: center;
+  padding: 0.6rem;
+}
+
+.admin--collapsed .admin__user-card {
+  justify-content: center;
+  padding: 0.65rem;
+}
+
+.admin--collapsed .admin__brand {
+  justify-content: center;
+}
+
+.admin--collapsed .admin__main {
+  margin-left: var(--sidebar-collapsed);
+}
+
+/* ——— Shared utilities ——— */
+.admin-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 0.9rem;
+}
+
+.admin-error {
+  background: rgba(255, 118, 117, 0.06);
+  border: 1px solid rgba(255, 118, 117, 0.12);
+  color: #ff7675;
+  padding: 1rem 1.25rem;
+  border-radius: 14px;
+  font-size: 0.88rem;
+  text-align: center;
+}
+
+.admin-empty {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.admin-empty svg {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.admin-empty p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* ——— Responsive ——— */
+@media (max-width: 900px) {
+  .admin {
+    --sidebar-width: var(--sidebar-collapsed);
+  }
+
+  .admin__sidebar {
+    width: var(--sidebar-collapsed);
+    padding: 1rem 0.5rem;
+  }
+
+  .admin__brand-text,
+  .admin__nav-label,
+  .admin__nav-text,
+  .admin__footer-btn span,
+  .admin__user-info {
+    display: none;
+  }
+
+  .admin__collapse-btn {
+    display: none;
+  }
+
+  .admin__nav-link {
+    justify-content: center;
+    padding: 0.75rem;
+  }
+
+  .admin__nav-link--active::before {
+    display: none;
+  }
+
+  .admin__footer-btn {
+    justify-content: center;
+    padding: 0.6rem;
+  }
+
+  .admin__user-card {
+    justify-content: center;
+    padding: 0.6rem;
+  }
+
+  .admin__brand {
+    justify-content: center;
+  }
+
+  .admin__main {
+    margin-left: var(--sidebar-collapsed);
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .admin__main {
+    padding: 1rem;
+  }
+}

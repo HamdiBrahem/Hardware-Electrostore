@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Auth Middleware admin snapshot: 403 not-admin response 1`] = `
+{
+  "message": "Not authorized as admin",
+  "success": false,
+}
+`;
+
+exports[`Auth Middleware protect snapshot: 401 invalid-token response 1`] = `
+{
+  "message": "Not authorized, token invalid",
+  "success": false,
+}
+`;
+
+exports[`Auth Middleware protect snapshot: 401 no-token response 1`] = `
+{
+  "message": "Not authorized, no token",
+  "success": false,
+}
+`;

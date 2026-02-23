@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Contact Routes POST /api/contact snapshot: contact submit response 1`] = `
+{
+  "data": {
+    "__v": "[version]",
+    "_id": "[ObjectId]",
+    "createdAt": "[Date]",
+    "email": "john@example.com",
+    "isRead": false,
+    "message": "This is a test message with at least 10 characters.",
+    "name": "John Doe",
+    "subject": "Test Subject",
+    "updatedAt": "[Date]",
+  },
+  "message": "Message sent successfully! We will get back to you soon.",
+  "success": true,
+}
+`;

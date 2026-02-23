@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CartContext snapshot: cart after adding one item 1`] = `
+{
+  "items": [
+    {
+      "_id": "p1",
+      "image": "/test.jpg",
+      "name": "Laptop",
+      "price": 999.99,
+      "quantity": 1,
+    },
+  ],
+  "totalItems": 1,
+  "totalPrice": 999.99,
+}
+`;
+
+exports[`CartContext snapshot: cart with multiple items 1`] = `
+{
+  "items": [
+    {
+      "_id": "p1",
+      "image": "/test.jpg",
+      "name": "Laptop",
+      "price": 999.99,
+      "quantity": 1,
+    },
+    {
+      "_id": "p2",
+      "image": "/test2.jpg",
+      "name": "Phone",
+      "price": 499.99,
+      "quantity": 1,
+    },
+  ],
+  "totalItems": 2,
+  "totalPrice": 1499.98,
+}
+`;
+
+exports[`CartContext snapshot: initial cart state 1`] = `
+{
+  "isOpen": false,
+  "items": [],
+  "totalItems": 0,
+  "totalPrice": 0,
+}
+`;

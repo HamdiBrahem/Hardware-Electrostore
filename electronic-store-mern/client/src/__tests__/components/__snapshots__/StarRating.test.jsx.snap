@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StarRating snapshot: rating 0 1`] = `"<div class="star-rating" style="display: flex; gap: 2px;"><span data-testid="empty-star"></span><span data-testid="empty-star"></span><span data-testid="empty-star"></span><span data-testid="empty-star"></span><span data-testid="empty-star"></span></div>"`;
+
+exports[`StarRating snapshot: rating 3.5 1`] = `"<div class="star-rating" style="display: flex; gap: 2px;"><span data-testid="full-star"></span><span data-testid="full-star"></span><span data-testid="full-star"></span><span data-testid="half-star"></span><span data-testid="empty-star"></span></div>"`;
+
+exports[`StarRating snapshot: rating 5 1`] = `"<div class="star-rating" style="display: flex; gap: 2px;"><span data-testid="full-star"></span><span data-testid="full-star"></span><span data-testid="full-star"></span><span data-testid="full-star"></span><span data-testid="full-star"></span></div>"`;
