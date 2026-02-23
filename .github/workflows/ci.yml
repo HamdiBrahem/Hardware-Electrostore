@@ -24,11 +24,19 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
+      - name: Set up Node.js for server
         uses: actions/setup-node@v5
         with:
           node-version: '18'
           cache: 'npm'
+          cache-dependency-path: electronic-store-mern/server/package-lock.json
+
+      - name: Set up Node.js for client
+        uses: actions/setup-node@v5
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: electronic-store-mern/client/package-lock.json
 
       - name: Run server tests
         working-directory: electronic-store-mern/server
