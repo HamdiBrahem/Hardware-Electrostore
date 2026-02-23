@@ -51,6 +51,12 @@ jobs:
           npm test
 
       # ─── End-to-end tests using Cypress ───────────────────────
+      - name: Cache Cypress binary
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/Cypress
+          key: ${{ runner.os }}-cypress-${{ hashFiles('**/cypress.config.js') }}
+
       - name: Run Cypress e2e tests
         run: |
           # install deps for both sides (server may not have been installed since earlier job)
