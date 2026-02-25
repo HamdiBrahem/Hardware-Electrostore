@@ -18,7 +18,7 @@ jobs:
           working-directory: electronic-store-mern/client
           start: npm run dev
           wait-on: 'http://localhost:5173'
-          record: true
+          record: false   # disable recording since projectId isn't configured
           parallel: true
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
