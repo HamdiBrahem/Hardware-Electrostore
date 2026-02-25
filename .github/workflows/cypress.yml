@@ -46,6 +46,7 @@ jobs:
           wait-on: 'http://localhost:5173'
           record: false   # disable recording since projectId isn't configured
           parallel: false  # no parallel, avoid CI flags when record is false
+          args: --config video=false,screenshotOnRunFailure=true
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
