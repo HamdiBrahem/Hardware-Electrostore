@@ -19,11 +19,11 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install server dependencies
         run: |
-          cd server
+          cd electronic-store-mern/server
           npm ci
       - name: Start server
         run: |
-          cd server
+          cd electronic-store-mern/server
           npm run dev &
           sleep 5
       - name: Install Postman CLI
