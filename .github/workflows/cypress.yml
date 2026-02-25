@@ -15,7 +15,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-          working-directory: client
+          working-directory: electronic-store-mern/client
           start: npm start
           wait-on: 'http://localhost:3000'
           record: true
