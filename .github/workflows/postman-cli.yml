@@ -21,6 +21,11 @@ jobs:
         run: |
           cd electronic-store-mern/server
           npm ci
+      - name: Seed database
+        run: |
+          cd electronic-store-mern/server
+          # seed with known products (includes fixed _id used by Postman tests)
+          MONGO_URI=mongodb://localhost:27017/electrostore npm run seed
       - name: Start server
         run: |
           cd electronic-store-mern/server
