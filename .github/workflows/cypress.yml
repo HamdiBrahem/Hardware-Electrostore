@@ -12,6 +12,21 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Install server dependencies
+        run: |
+          cd electronic-store-mern/server
+          npm ci
+      - name: Seed backend database
+        run: |
+          cd electronic-store-mern/server
+          MONGO_URI=mongodb://localhost:27017/electrostore npm run seed
+      - name: Start backend server
+        run: |
+          cd electronic-store-mern/server
+          MONGO_URI=mongodb://localhost:27017/electrostore npm run dev &
+          until curl -s http://localhost:5000/api/health >/dev/null 2>&1; do
+            sleep 1
+          done
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
