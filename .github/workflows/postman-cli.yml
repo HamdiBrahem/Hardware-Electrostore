@@ -24,8 +24,12 @@ jobs:
       - name: Start server
         run: |
           cd electronic-store-mern/server
-          npm run dev &
-          sleep 5
+          # provide a MongoDB connection string that points at the service container
+          MONGO_URI=mongodb://localhost:27017/electrostore npm run dev &
+          # wait until the health endpoint responds before running tests
+          until curl -s http://localhost:5000/api/health >/dev/null 2>&1; do
+            sleep 1
+          done
       - name: Install Postman CLI
         run: |
           curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
