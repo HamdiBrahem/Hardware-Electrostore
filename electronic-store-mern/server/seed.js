@@ -7,7 +7,7 @@ import User from './models/User.js';
 const products = [
   {
     // ensure tests can look up this specific ID
-    _id: mongoose.Types.ObjectId('69988bc26491922a9205a3d5'),
+    _id: new mongoose.Types.ObjectId('69988bc26491922a9205a3d5'),
     name: 'Laptop Gamer',
     category: 'Computers',
     brand: 'MSI',
