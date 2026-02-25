@@ -5,6 +5,16 @@ on: [push]
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
+    services:
+      mongodb:
+        image: mongo:6
+        ports:
+          - 27017:27017
+        options: >-
+          --health-cmd="mongosh --eval 'db.runCommand({ ping:1 })'"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
     strategy:
       fail-fast: false
       matrix:
@@ -19,6 +29,7 @@ jobs:
       - name: Seed backend database
         run: |
           cd electronic-store-mern/server
+          # point at the Mongo service container
           MONGO_URI=mongodb://localhost:27017/electrostore npm run seed
       - name: Start backend server
         run: |
